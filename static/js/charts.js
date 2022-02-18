@@ -48,6 +48,7 @@ function buildMetadata(sample) {
     // Use `Object.entries` to add each key and value pair to the panel
     // Hint: Inside the loop, you will need to use d3 to append new
     // tags for each key-value in the metadata.
+    // Below line of code is add from "plot.js
     Object.entries(result).forEach(([key, value]) => {
       PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
     });
@@ -73,14 +74,14 @@ function buildCharts(sample) {
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
 
-    var yticks = 
+   // var yticks = 
 
     // 8. Create the trace for the bar chart. 
-    var barData = [
+  //  var barData = [
       
     ];
     // 9. Create the layout for the bar chart. 
-    var barLayout = {
+  //  var barLayout = {
      
     };
     // 10. Use Plotly to plot the data with the layout. 
