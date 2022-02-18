@@ -70,7 +70,7 @@ function buildCharts(sample) {
     var resultArray2 = samples.filter(sampleObj => sampleObj.id == sample);
 
     //  5. Create a variable that holds the first sample in the array.
-    var result2 = resultArray2[0];  
+    var result = resultArray2[0];  
 
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     // Referenced code from Emmanuel Martinez (emmanuelmartinezs), "charts.js" on GitHub to correct variable definitions using slice method to get top 10 sample results.
