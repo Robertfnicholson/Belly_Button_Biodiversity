@@ -81,8 +81,9 @@ function buildCharts(sample) {
     console.log(values);
 
     // Create variables for the bubble chart labels and values
-    //var bubbleLabels = result.otu_labels;
-    //var bubbleValues = result.sample_values;
+    // // Referenced code from Emmanuel Martinez (emmanuelmartinezs), "charts.js" on GitHub to correct code error in deliverable 2, step 1-2 by adding variables.
+    var bubbleLabels = result.otu_labels;
+    var bubbleValues = result.sample_values;
 
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
@@ -107,5 +108,37 @@ function buildCharts(sample) {
 
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
+  });
+
+
+// Create a Bubble charts
+
+    // 1. Create the trace for the bubble chart.
+    // Referenced code from https://plotly.com/javascript/bubble-charts/
+    // // Referenced code from Emmanuel Martinez (emmanuelmartinezs), "charts.js" on GitHub to correct variable definition above in deliverable 1, step 6.
+    var bubbleData = [{
+      x: ids,
+      y: bubbleValues,
+      text: bubbleLabels,
+      mode: 'markers',
+      marker: {
+        size: bubbleValues,
+        color: ids,
+        colorscale: 'Earth'
+      }
+    }];
+
+    // 2. Create the layout for the bubble chart.
+     // Referenced code from Emmanuel Martinez (emmanuelmartinezs), "charts.js" on GitHub to correct variable definition above in deliverable 1, step 6.
+    var bubbleLayout = {
+      title: 'Bacteria Cultures Per Sample',
+      xaxis: {title: 'OTU ID'  }
+      automargin: true,
+      hovermode: "closest"
+      width: 600
+    };
+
+    // 3. Use Plotly to plot the data with the layout.
+    Plotly.newPlot('bubble', bubbleData, bubblelayout); 
   });
 }
