@@ -132,10 +132,9 @@ function buildCharts(sample) {
      // Referenced code from Emmanuel Martinez (emmanuelmartinezs), "charts.js" on GitHub to correct variable definition above in deliverable 1, step 6.
     var bubbleLayout = {
       title: 'Bacteria Cultures Per Sample',
-      xaxis: {title: 'OTU ID'  }
+      xaxis: {title: 'OTU ID'},
       automargin: true,
-      hovermode: "closest"
-      width: 600
+      hovermode: "closest",
     };
 
     // 3. Use Plotly to plot the data with the layout.
