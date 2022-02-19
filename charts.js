@@ -108,7 +108,7 @@ function buildCharts(sample) {
 
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
-  });
+  
 
 
 // Create a Bubble charts
