@@ -142,25 +142,26 @@ function buildCharts(sample) {
     // Create a gauge chart
 
     // 1. Create a variable that filters the metadata array for the object with the desired sample number.
+    var metadata = data.metadata;
     var gaugeArray = metadata.filter(metaObj => metaObj.id == sample)
   
     // 2. Create a variable that holds the first sample in the metadata array.
     var gaugeResult = gaugeArray[0];
 
     // 3. Create a variable that holds the washing frequency.
-    var washfreq = gaugeResult.washfreq;
-    colsole.log(washfreq);
+    var wfreq = gaugeResult.wfreq;
     
     // 4. Create the trace for the gauge chart.
-    // Referenced code from Emmanuel Martinez (emmanuelmartinezs), "charts.js" on GitHub to correct syntax for 
+    // Referenced code from Emmanuel Martinez (emmanuelmartinezs), "charts.js" on GitHub to correct syntax for title parameter and axis parapater
     var gaugeData = [
       {
         type: "indicator",
         mode: "gauge+number",
-        value: washfreq,
+        value: wfreq,
         title: { text: "<b> Belly Button Washing Frequency </b> <br></br> Scrubs Per Week", font: { size: 24 } },     
         gauge: {
-          bar: { color: "black" },
+          axis: {range: [null, 10], dtick: "2"},
+          bar: {color: "black" },
           bgcolor: "white",
           borderwidth: 2,
           bordercolor: "black",
