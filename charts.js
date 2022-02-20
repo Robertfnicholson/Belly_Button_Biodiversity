@@ -165,21 +165,15 @@ function buildCharts(sample) {
           borderwidth: 2,
           bordercolor: "black",
           steps: [
-            { range: [0, 2, color: "red" },
-            { range: [2, 4, color: "orange" },
-            { range: [4, 6, color: "yellow" },
-            { range: [6, 8, color: "lightgreen" },
-            { range: [8, 10], color: "green" }
+            {range: [0, 2], color: "red"},
+            {range: [2, 4], color: "orange"},
+            {range: [4, 6], color: "yellow"},
+            {range: [6, 8], color: "lightgreen"},
+            {range: [8, 10], color: "green"}
           ],
           dtick: 2
-          threshold: {
-            line: { color: "black", width: 4 },
-            thickness: 0.75,
-            value: 490
-          }
-        }
-      }
-    ];
+        }      
+      }];
     
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = { 
