@@ -18,7 +18,7 @@ function init() {
     buildCharts(firstSample);
     buildMetadata(firstSample);
   });
-// "Plot.js file" has "{)}" on the next line 
+// "Plot.js file" has "{)}" on the next line - it does because the code ended there. In challenge, we extend code
 }
 
 // Initialize the dashboard
@@ -61,7 +61,8 @@ function buildCharts(sample) {
 
   // 2. Use d3.json to load and retrieve the samples.json file 
   d3.json("samples.json").then((data) => {
-
+    // added console.log with gauge chart
+    console.log(data);
     // 3. Create a variable that holds the samples array. 
     // Referenced code from Module 12 and provided starter code.
     var samples = data.samples;
@@ -109,8 +110,6 @@ function buildCharts(sample) {
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
   
-
-
 // Create a Bubble charts
 
     // 1. Create the trace for the bubble chart.
@@ -139,5 +138,55 @@ function buildCharts(sample) {
 
     // 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot('bubble', bubbleData, bubbleLayout); 
+
+    // Create a gauge chart
+
+    // 1. Create a variable that filters the metadata array for the object with the desired sample number.
+    var gaugeArray = metadata.filter(metaObj => metaObj.id == sample)
+  
+    // 2. Create a variable that holds the first sample in the metadata array.
+    var gaugeResult = gaugeArray[0];
+
+    // 3. Create a variable that holds the washing frequency.
+    var washfreq = gaugeResult.washfreq;
+    colsole.log(washfreq);
+    
+    // 4. Create the trace for the gauge chart.
+    // Referenced code from Emmanuel Martinez (emmanuelmartinezs), "charts.js" on GitHub to correct syntax for 
+    var gaugeData = [
+      {
+        type: "indicator",
+        mode: "gauge+number",
+        value: washfreq,
+        title: { text: "<b> Belly Button Washing Frequency </b> <br></br> Scrubs Per Week", font: { size: 24 } },     
+        gauge: {
+          bar: { color: "black" },
+          bgcolor: "white",
+          borderwidth: 2,
+          bordercolor: "black",
+          steps: [
+            { range: [0, 2, color: "red" },
+            { range: [2, 4, color: "orange" },
+            { range: [4, 6, color: "yellow" },
+            { range: [6, 8, color: "lightgreen" },
+            { range: [8, 10], color: "green" }
+          ],
+          dtick: 2
+          threshold: {
+            line: { color: "black", width: 4 },
+            thickness: 0.75,
+            value: 490
+          }
+        }
+      }
+    ];
+    
+    // 5. Create the layout for the gauge chart.
+    var gaugeLayout = { 
+      automatrgin: true
+    };
+
+    // 6. Use Plotly to plot the gauge data and layout.
+    Plotly.newPlot('gauge', gaugeData, gaugeLayout);
   });
-};
+}
