@@ -1,3 +1,10 @@
 .m-top-75 {
     margin-top: 75px;
   }
+
+** Reference code used from Emmanuel Martinez (emmanuelmartinezs), "charts.js" on GitHub to correct syntax to use image **
+.jumbotron {
+  background-image: url("belly_button.jpg");
+  background-size: 100% 100%;
+  text-align: center;
+}
